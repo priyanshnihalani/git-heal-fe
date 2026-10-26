@@ -1,0 +1,118 @@
+.typed-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 100;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.typed-dialog-card {
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border: 1px solid var(--card-border, #e5e7eb);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.typed-dialog-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #991b1b;
+  margin: 0;
+}
+
+.typed-dialog-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted, #4b5563);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.typed-dialog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.typed-input-label {
+  font-size: 0.8125rem;
+  color: var(--text-main, #111827);
+}
+
+.required-word {
+  font-family: var(--font-mono, monospace);
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.typed-input-field {
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--card-border, #d1d5db);
+  border-radius: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.875rem;
+  color: var(--text-main, #111827);
+  outline: none;
+}
+
+.typed-input-field:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
+.typed-dialog-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.btn-typed-cancel {
+  padding: 8px 16px;
+  border: 1px solid var(--card-border, #d1d5db);
+  background: #ffffff;
+  color: var(--text-main, #111827);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-typed-confirm {
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  background: #dc2626;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.btn-typed-confirm:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-typed-confirm:hover:not(:disabled) {
+  background: #b91c1c;
+}

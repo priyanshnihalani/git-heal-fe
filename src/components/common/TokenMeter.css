@@ -1,0 +1,150 @@
+/* TokenMeter.css */
+.token-meter-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.token-meter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 10px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  user-select: none;
+}
+
+.token-meter-pill:hover {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.token-meter-pill:focus-visible {
+  outline: 2px solid #1F2328;
+  outline-offset: 2px;
+}
+
+/* Linear progress track inside pill */
+.pill-bar-track {
+  width: 36px;
+  height: 6px;
+  background: #F1F5F9;
+  border-radius: 9999px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.pill-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+/* State colors */
+.token-meter-pill.state-ok {
+  border-color: #D0D7DE;
+}
+.token-meter-pill.state-ok .pill-bar-fill {
+  background-color: #24292F;
+}
+.token-meter-pill.state-ok .meter-pill-text {
+  color: #1F2328;
+}
+.token-meter-pill.state-ok .meter-mobile-ring {
+  color: #0969DA;
+}
+
+.token-meter-pill.state-low {
+  background: #FFFBEB;
+  border-color: #FDE68A;
+}
+.token-meter-pill.state-low .pill-bar-fill {
+  background-color: #D97706;
+}
+.token-meter-pill.state-low .meter-pill-text {
+  color: #B45309;
+}
+.token-meter-pill.state-low .meter-mobile-ring {
+  color: #D97706;
+}
+
+.token-meter-pill.state-limit {
+  background: #FEF2F2;
+  border-color: #FECACA;
+}
+.token-meter-pill.state-limit .pill-bar-fill {
+  background-color: #DC2626;
+}
+.token-meter-pill.state-limit .meter-pill-text {
+  color: #DC2626;
+}
+.token-meter-pill.state-limit .meter-mobile-ring {
+  color: #DC2626;
+}
+
+.meter-pill-text {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.meter-mobile-ring {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Error fallback */
+.token-meter-error {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #64748B;
+  background: #F1F5F9;
+  padding: 4px 8px;
+  border-radius: 9999px;
+}
+
+.meter-retry-btn {
+  background: transparent;
+  border: none;
+  color: #0969DA;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .pill-bar-track {
+    display: none;
+  }
+  .meter-mobile-ring {
+    display: flex;
+  }
+  .token-meter-pill {
+    padding: 0 8px;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 420px) {
+  .meter-pill-text {
+    display: none;
+  }
+  .token-meter-pill {
+    padding: 0 6px;
+    width: 32px;
+    justify-content: center;
+  }
+}

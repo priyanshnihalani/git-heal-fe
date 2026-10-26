@@ -1,0 +1,124 @@
+/* UsageChart.css */
+
+.usage-chart-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chart-legend-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.chart-legend-items {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 11px;
+  color: #475569;
+}
+
+.legend-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.indicator-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.indicator-color.bar-normal {
+  background-color: #0969DA;
+}
+
+.indicator-color.bar-high {
+  background-color: #D97706;
+}
+
+.indicator-line.limit-line {
+  width: 14px;
+  height: 2px;
+  border-top: 2px dashed #DC2626;
+}
+
+.svg-container {
+  position: relative;
+  width: 100%;
+}
+
+.usage-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.chart-bar {
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  outline: none;
+}
+
+.chart-bar.is-normal {
+  fill: #0969DA;
+}
+
+.chart-bar.is-high {
+  fill: #D97706;
+}
+
+.chart-bar:hover,
+.chart-bar:focus-visible {
+  opacity: 0.85;
+}
+
+.chart-bar:focus-visible {
+  stroke: #0969DA;
+  stroke-width: 2px;
+}
+
+/* Tooltip */
+.chart-tooltip {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  background: #0F172A;
+  color: #FFFFFF;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.tooltip-date {
+  font-weight: 600;
+  color: #F8FAFC;
+}
+
+.tooltip-tokens {
+  color: #C4B5FD;
+  font-variant-numeric: tabular-nums;
+}
+
+.tooltip-percent {
+  font-size: 10px;
+  color: #94A3B8;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-empty {
+  padding: 32px 0;
+  text-align: center;
+  font-size: 13px;
+  color: #64748B;
+}

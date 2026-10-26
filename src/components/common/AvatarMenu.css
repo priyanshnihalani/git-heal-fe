@@ -1,0 +1,142 @@
+/* AvatarMenu.css */
+.avatar-menu-wrap {
+  position: relative;
+}
+
+.avatar-trigger-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  padding: 0;
+  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  overflow: hidden;
+}
+
+.avatar-trigger-btn:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.avatar-trigger-btn:focus-visible {
+  outline: 2px solid #1F2328;
+  outline-offset: 2px;
+}
+
+.avatar-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-initials-fallback {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1F2328;
+  background: #F6F8FA;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* Dropdown */
+.avatar-dropdown-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 200px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  padding: 6px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  animation: dropdownIn 0.15s ease-out;
+}
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.avatar-user-badge {
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-display-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0F172A;
+}
+
+.user-handle {
+  font-size: 12px;
+  color: #475569; /* WCAG AA */
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: #F1F5F9;
+  margin: 4px 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: all 0.12s ease;
+}
+
+.dropdown-item:hover {
+  background: #F8FAFC;
+  color: #0F172A;
+}
+
+.dropdown-item:focus-visible {
+  outline: 2px solid #1F2328;
+  outline-offset: -1px;
+}
+
+.dropdown-item.text-danger {
+  color: #DC2626;
+}
+
+.dropdown-item.text-danger:hover {
+  background: #FEF2F2;
+  color: #B91C1C;
+}
+
+.menu-icon {
+  color: inherit;
+  opacity: 0.75;
+}

@@ -1,0 +1,186 @@
+/* PipelineTimeline.css - Sticky Vertical Timeline with Token Counts */
+
+.pipeline-timeline-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  position: sticky;
+  top: 80px;
+}
+
+.timeline-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px 0;
+}
+
+.timeline-container {
+  position: relative;
+}
+
+.timeline-track-line {
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 13px;
+  width: 2px;
+  background: #E2E8F0;
+  z-index: 0;
+}
+
+.timeline-steps-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.step-node {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+/* Completed - GitHub Dark */
+.step-node.completed {
+  background: #1F2328;
+  color: #FFFFFF;
+  border: 2px solid #1F2328;
+}
+
+/* In Progress - Blue with ring */
+.step-node.in_progress {
+  background: #FFFFFF;
+  color: #2563EB;
+  border: 2px solid #2563EB;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.in-progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2563EB;
+  animation: pulseNode 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseNode {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.6); opacity: 0.5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .in-progress-dot {
+    animation: none;
+  }
+}
+
+/* Failed - Red */
+.step-node.failed {
+  background: #DC2626;
+  color: #FFFFFF;
+  border: 2px solid #DC2626;
+}
+
+/* Pending - Muted */
+.step-node.pending {
+  background: #F8FAFC;
+  color: #64748B;
+  border: 2px solid #CBD5E1;
+}
+
+.step-info-block {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.step-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.step-name-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0F172A;
+}
+
+.timeline-step-item.pending .step-name-text {
+  color: #64748B;
+}
+
+.step-duration-tag {
+  font-size: 11px;
+  font-weight: 500;
+  color: #475569; /* WCAG AA */
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.step-summary-text {
+  font-size: 12px;
+  color: #475569; /* WCAG AA */
+  margin: 0;
+  line-height: 1.45;
+}
+
+.timeline-step-item.pending .step-summary-text {
+  color: #64748B;
+}
+
+/* Subtle Total Row */
+.timeline-total-row {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #F1F5F9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  font-variant-numeric: tabular-nums;
+}
+
+.total-label {
+  color: #64748B;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+.total-metrics {
+  color: #0F172A;
+}
+
+@media (max-width: 840px) {
+  .pipeline-timeline-card {
+    position: static;
+  }
+}

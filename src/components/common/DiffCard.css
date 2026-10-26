@@ -1,0 +1,122 @@
+.reusable-diff-card {
+  width: 100%;
+  background: var(--code-bg, #121722);
+  border: 1px solid var(--code-border, #30363D);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.reusable-diff-header {
+  background: var(--code-header, #171e2c);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.diff-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  flex-wrap: wrap;
+}
+
+.diff-repo-tag {
+  font-weight: 600;
+  color: #f0f6fc;
+}
+
+.diff-pr-tag {
+  color: #8b949e;
+}
+
+.diff-file-path {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: #58a6ff;
+}
+
+.diff-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-copy-code {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #E2E8F0;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-copy-code:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+.btn-copy-code:focus-visible {
+  outline: 2px solid #FFFFFF;
+}
+
+.diff-counter-pill {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  gap: 4px;
+}
+
+.count-add {
+  color: #3fb950;
+}
+
+.count-del {
+  color: #f85149;
+}
+
+.reusable-diff-body {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: #e6edf3;
+  padding: 16px;
+  margin: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  outline: none;
+}
+
+.diff-line-row {
+  display: block;
+  white-space: pre;
+}
+
+.line-type-context {
+  color: #8b949e;
+}
+
+.line-type-del {
+  background: rgba(248, 81, 73, 0.15);
+  color: #ff7b72;
+  border-left: 3px solid #f85149;
+  padding-left: 8px;
+  margin-left: -11px;
+}
+
+.line-type-add {
+  background: rgba(46, 160, 67, 0.15);
+  color: #3fb950;
+  border-left: 3px solid #3fb950;
+  padding-left: 8px;
+  margin-left: -11px;
+}

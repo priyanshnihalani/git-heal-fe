@@ -1,0 +1,358 @@
+/* AppShell.css - GitHeal Design System & App Shell (GitHub Black & White Theme) */
+
+:root {
+  --gh-bg: #FFFFFF;
+  --gh-surface: #FFFFFF;
+  --gh-border: #D0D7DE;
+  --gh-purple: #1F2328;
+  --gh-purple-hover: #0F172A;
+  --gh-purple-light: #F6F8FA;
+  --gh-text-main: #1F2328;
+  --gh-text-muted: #656D76; /* WCAG AA contrast against #FFFFFF & #F6F8FA */
+  --gh-text-subtle: #8C959F;
+  --gh-radius-card: 12px;
+  --gh-radius-input: 6px;
+  --gh-radius-pill: 9999px;
+  --gh-shadow: 0 1px 3px rgba(31, 35, 40, 0.08);
+}
+
+.app-shell-layout {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  background-color: var(--gh-bg);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Neutral ambient shadow */
+.top-ambient-glow {
+  display: none;
+}
+
+/* Sticky Translucent Top Bar (GitHub style) */
+.app-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gh-border);
+}
+
+.topbar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  height: 60px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--gh-text-main);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+}
+
+.topbar-brand:focus-visible {
+  outline: 2px solid var(--gh-purple);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.brand-logo-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.brand-dot {
+  display: none;
+}
+
+/* Repo Switcher */
+.repo-switcher-wrap {
+  position: relative;
+}
+
+.repo-switcher-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 12px;
+  background: #FFFFFF;
+  border: 1px solid var(--gh-border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gh-text-main);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.repo-switcher-btn:hover {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.repo-switcher-btn:focus-visible {
+  outline: 2px solid var(--gh-purple);
+  outline-offset: 2px;
+}
+
+.repo-icon {
+  color: var(--gh-text-muted);
+  flex-shrink: 0;
+}
+
+.repo-current-label {
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.switcher-caret {
+  font-size: 11px;
+  color: var(--gh-text-muted);
+}
+
+.switcher-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 240px;
+  background: #FFFFFF;
+  border: 1px solid var(--gh-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  padding: 6px;
+  z-index: 55;
+  display: flex;
+  flex-direction: column;
+}
+
+.switcher-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--gh-text-main);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.12s ease;
+}
+
+.switcher-option:hover {
+  background: #F8FAFC;
+}
+
+.switcher-option.is-selected {
+  background: var(--gh-purple-light);
+  color: var(--gh-purple-hover);
+  font-weight: 600;
+}
+
+.switcher-option:focus-visible {
+  outline: 2px solid var(--gh-purple);
+}
+
+.option-badge {
+  font-size: 11px;
+  color: var(--gh-text-muted);
+  background: #F1F5F9;
+  padding: 1px 6px;
+  border-radius: 9999px;
+  font-variant-numeric: tabular-nums;
+}
+
+.option-meta {
+  font-size: 11px;
+  color: var(--gh-text-muted);
+}
+
+.switcher-divider {
+  height: 1px;
+  background: #F1F5F9;
+  margin: 4px 0;
+}
+
+.switcher-option-action {
+  display: block;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gh-purple-hover);
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.switcher-option-action:hover {
+  background: var(--gh-purple-light);
+}
+
+.switcher-option-action:focus-visible {
+  outline: 2px solid var(--gh-purple);
+}
+
+/* Nav Link Pills */
+.topbar-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #F1F5F9;
+  padding: 3px;
+  border-radius: 9999px;
+}
+
+.nav-link-pill {
+  padding: 5px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gh-text-muted);
+  text-decoration: none;
+  border-radius: 9999px;
+  transition: all 0.15s ease;
+}
+
+.nav-link-pill:hover {
+  color: var(--gh-text-main);
+}
+
+.nav-link-pill.is-active {
+  color: var(--gh-purple-hover);
+  background: #FFFFFF;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.nav-link-pill:focus-visible {
+  outline: 2px solid var(--gh-purple);
+  outline-offset: 1px;
+}
+
+/* Topbar Right Area */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Container Layout System */
+.app-shell-content {
+  flex: 1 0 auto;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.layout-container-app {
+  max-width: 1120px;
+}
+
+.layout-container-form {
+  max-width: 760px;
+}
+
+/* Pinned Footer */
+.app-shell-footer {
+  margin-top: auto;
+  border-top: 1px solid var(--gh-border);
+  background: #FFFFFF;
+  padding: 18px 24px;
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--gh-text-muted);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-link {
+  color: var(--gh-text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-link:hover {
+  color: var(--gh-purple-hover);
+  text-decoration: underline;
+}
+
+.footer-link:focus-visible {
+  outline: 2px solid var(--gh-purple);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.footer-dot {
+  color: #CBD5E1;
+}
+
+.footer-copy {
+  color: var(--gh-text-subtle);
+}
+
+/* Responsive */
+@media (max-width: 680px) {
+  .topbar-inner {
+    padding: 0 16px;
+  }
+
+  .topbar-nav-links {
+    gap: 2px;
+  }
+
+  .nav-link-pill {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+
+  .app-shell-content {
+    padding: 20px 16px 48px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

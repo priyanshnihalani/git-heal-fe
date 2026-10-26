@@ -1,0 +1,341 @@
+/* ============================================================================
+   GitFlowGraph.css - Animated Git Flow with Flow, Error, Retry, Merge & Success
+   ============================================================================ */
+
+.bg-git-graph {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 190px;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 1;
+}
+
+.bg-git-graph-left {
+  left: 0;
+}
+
+.bg-git-graph-right {
+  right: 0;
+}
+
+@media (max-width: 1024px) {
+  .bg-git-graph {
+    display: none;
+  }
+}
+
+/* Background trunk and branch paths */
+.git-trunk-line {
+  stroke: #0969DA;
+  stroke-width: 1.5;
+  stroke-opacity: 0.25;
+}
+
+.git-branch-line {
+  stroke: #0969DA;
+  stroke-width: 1.5;
+  stroke-opacity: 0.3;
+  stroke-dasharray: 4 3;
+}
+
+/* Traveling pulse packets */
+.flow-packet {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: packetColorCycle 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+@keyframes packetColorCycle {
+  0%, 25% {
+    fill: #0969DA;
+    color: #0969DA;
+    r: 4.5;
+  }
+  26%, 46% {
+    fill: #CF222E;
+    color: #CF222E;
+    r: 5.5;
+  }
+  47%, 68% {
+    fill: #D97706;
+    color: #D97706;
+    r: 5;
+  }
+  69%, 88% {
+    fill: #1A7F37;
+    color: #1A7F37;
+    r: 5.5;
+  }
+  89%, 100% {
+    fill: #8250DF;
+    color: #8250DF;
+    r: 5;
+  }
+}
+
+/* Commit Nodes with Phase Pulses */
+.commit-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+/* Node 1: Main flow */
+.node-flow {
+  animation: flowPulse 6s ease-in-out infinite;
+}
+
+@keyframes flowPulse {
+  0%, 100% {
+    fill: #0969DA;
+    fill-opacity: 0.4;
+    stroke: #0969DA;
+    stroke-opacity: 0.6;
+    transform: scale(1);
+  }
+  8%, 20% {
+    fill: #0969DA;
+    fill-opacity: 1;
+    stroke: #218BFF;
+    stroke-opacity: 1;
+    transform: scale(1.35);
+  }
+  24% {
+    fill: #0969DA;
+    fill-opacity: 0.4;
+    transform: scale(1);
+  }
+}
+
+/* Node 2: CI Failure (Error) */
+.node-error {
+  animation: errorPulse 6s ease-in-out infinite;
+}
+
+@keyframes errorPulse {
+  0%, 26% {
+    fill: #0969DA;
+    fill-opacity: 0.3;
+    stroke: #0969DA;
+    stroke-opacity: 0.4;
+    transform: scale(1);
+  }
+  28%, 45% {
+    fill: #CF222E;
+    fill-opacity: 1;
+    stroke: #FF8182;
+    stroke-opacity: 1;
+    transform: scale(1.45);
+    filter: drop-shadow(0 0 6px rgba(207, 34, 46, 0.75));
+  }
+  50% {
+    fill: #CF222E;
+    fill-opacity: 0.6;
+    stroke: #CF222E;
+    stroke-opacity: 0.7;
+    transform: scale(1);
+    filter: none;
+  }
+  100% {
+    fill: #0969DA;
+    fill-opacity: 0.3;
+    stroke: #0969DA;
+    stroke-opacity: 0.4;
+    transform: scale(1);
+  }
+}
+
+/* Node 3: AI Patch & Retry */
+.node-retry {
+  animation: retryPulse 6s ease-in-out infinite;
+}
+
+@keyframes retryPulse {
+  0%, 48% {
+    fill: #0969DA;
+    fill-opacity: 0.3;
+    stroke: #0969DA;
+    stroke-opacity: 0.4;
+    transform: scale(1);
+  }
+  50%, 58% {
+    fill: #D97706;
+    fill-opacity: 1;
+    stroke: #F59E0B;
+    stroke-opacity: 1;
+    transform: scale(1.35);
+    filter: drop-shadow(0 0 6px rgba(217, 119, 6, 0.75));
+  }
+  60%, 70% {
+    fill: #1A7F37;
+    fill-opacity: 1;
+    stroke: #2DA44E;
+    stroke-opacity: 1;
+    transform: scale(1.4);
+    filter: drop-shadow(0 0 6px rgba(26, 127, 55, 0.75));
+  }
+  75% {
+    fill: #1A7F37;
+    fill-opacity: 0.6;
+    transform: scale(1);
+    filter: none;
+  }
+  100% {
+    fill: #0969DA;
+    fill-opacity: 0.3;
+    stroke: #0969DA;
+    stroke-opacity: 0.4;
+    transform: scale(1);
+  }
+}
+
+/* Node 4: Merge PR (Success) */
+.node-merge {
+  animation: mergePulse 6s ease-in-out infinite;
+}
+
+@keyframes mergePulse {
+  0%, 72% {
+    fill: #0969DA;
+    fill-opacity: 0.3;
+    stroke: #0969DA;
+    stroke-opacity: 0.4;
+    transform: scale(1);
+  }
+  74%, 92% {
+    fill: #8250DF;
+    fill-opacity: 1;
+    stroke: #A371F7;
+    stroke-opacity: 1;
+    transform: scale(1.45);
+    filter: drop-shadow(0 0 7px rgba(130, 80, 223, 0.8));
+  }
+  96% {
+    fill: #8250DF;
+    fill-opacity: 0.5;
+    transform: scale(1);
+    filter: none;
+  }
+  100% {
+    fill: #0969DA;
+    fill-opacity: 0.3;
+    stroke: #0969DA;
+    stroke-opacity: 0.4;
+    transform: scale(1);
+  }
+}
+
+/* Micro Status Tags */
+.git-status-tag {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.git-status-tag text {
+  user-select: none;
+  letter-spacing: -0.01em;
+}
+
+.tag-flow {
+  animation: tagFlowFade 6s ease-in-out infinite;
+}
+
+@keyframes tagFlowFade {
+  0%, 100% { opacity: 0.35; transform: translateY(0); }
+  8%, 20% { opacity: 1; transform: translateY(-1px); }
+  24% { opacity: 0.35; transform: translateY(0); }
+}
+
+.tag-error {
+  animation: tagErrorFade 6s ease-in-out infinite;
+}
+
+@keyframes tagErrorFade {
+  0%, 26% { opacity: 0.3; transform: translateY(0); }
+  28%, 45% { opacity: 1; transform: translateY(-1px); }
+  50% { opacity: 0.3; transform: translateY(0); }
+  100% { opacity: 0.3; transform: translateY(0); }
+}
+
+.tag-retry {
+  animation: tagRetryFade 6s ease-in-out infinite;
+}
+
+@keyframes tagRetryFade {
+  0%, 48% { opacity: 0.3; transform: translateY(0); }
+  50%, 70% { opacity: 1; transform: translateY(-1px); }
+  75% { opacity: 0.3; transform: translateY(0); }
+  100% { opacity: 0.3; transform: translateY(0); }
+}
+
+.tag-merge {
+  animation: tagMergeFade 6s ease-in-out infinite;
+}
+
+@keyframes tagMergeFade {
+  0%, 72% { opacity: 0.3; transform: translateY(0); }
+  74%, 92% { opacity: 1; transform: translateY(-1px); }
+  96% { opacity: 0.3; transform: translateY(0); }
+  100% { opacity: 0.3; transform: translateY(0); }
+}
+
+/* Pulse Ripple Rings */
+.pulse-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  fill: none;
+  stroke-width: 1.5;
+  opacity: 0;
+}
+
+.ring-error {
+  stroke: #CF222E;
+  animation: ringExpandError 6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+@keyframes ringExpandError {
+  28% {
+    r: 4;
+    opacity: 0.9;
+  }
+  38% {
+    r: 14;
+    opacity: 0;
+  }
+  100% {
+    r: 4;
+    opacity: 0;
+  }
+}
+
+.ring-merge {
+  stroke: #8250DF;
+  animation: ringExpandMerge 6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+@keyframes ringExpandMerge {
+  74% {
+    r: 4;
+    opacity: 0.9;
+  }
+  86% {
+    r: 14;
+    opacity: 0;
+  }
+  100% {
+    r: 4;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-packet,
+  .commit-node,
+  .git-status-tag,
+  .pulse-ring {
+    animation: none !important;
+  }
+}

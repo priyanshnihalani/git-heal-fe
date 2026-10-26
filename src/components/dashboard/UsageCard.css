@@ -1,0 +1,65 @@
+/* UsageCard.css */
+.usage-stat-card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.usage-stat-card:hover {
+  border-color: #8C959F;
+  box-shadow: 0 4px 12px rgba(31, 35, 40, 0.08);
+}
+
+.stat-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.usage-card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.usage-card-subtext {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #475569; /* WCAG AA */
+  font-variant-numeric: tabular-nums;
+}
+
+.usage-dot-sep {
+  color: #94A3B8;
+}
+
+.usage-stat-card .stat-number {
+  color: #0969DA;
+}
+
+.usage-mini-track {
+  width: 100%;
+  height: 4px;
+  background: #F1F5F9;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.usage-mini-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background-color: #0969DA;
+  transition: width 0.3s ease;
+}
+
+.usage-stat-card.state-low .usage-mini-fill {
+  background-color: #D97706;
+}
+
+.usage-stat-card.state-limit .usage-mini-fill {
+  background-color: #DC2626;
+}

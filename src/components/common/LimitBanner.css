@@ -1,0 +1,65 @@
+/* LimitBanner.css */
+.limit-banner {
+  background-color: #FEF2F2;
+  border-bottom: 1px solid #FECACA;
+  color: #991B1B;
+  padding: 10px 16px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.limit-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 1120px;
+  width: 100%;
+}
+
+.limit-icon {
+  font-size: 14px;
+}
+
+.limit-banner-text {
+  font-size: 13px;
+}
+
+.low-toast-banner {
+  background-color: #FFFBEB;
+  border-bottom: 1px solid #FDE68A;
+  color: #92400E;
+  padding: 8px 16px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.low-toast-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 1120px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.btn-dismiss-toast {
+  background: transparent;
+  border: none;
+  color: #92400E;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.btn-dismiss-toast:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.btn-dismiss-toast:focus-visible {
+  outline: 2px solid #D97706;
+}

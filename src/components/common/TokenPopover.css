@@ -1,0 +1,375 @@
+/* TokenPopover.css */
+.token-popover-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 360px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  padding: 18px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: popoverFadeIn 0.15s ease-out;
+}
+
+@keyframes popoverFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.popover-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popover-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0;
+}
+
+.popover-close-btn {
+  background: transparent;
+  border: none;
+  color: #64748B;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.popover-close-btn:hover {
+  color: #0F172A;
+  background: #F1F5F9;
+}
+
+.popover-close-btn:focus-visible {
+  outline: 2px solid #0969DA;
+}
+
+/* Period Tabs */
+.popover-period-tabs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: #F1F5F9;
+  padding: 3px;
+  border-radius: 8px;
+  gap: 2px;
+}
+
+.period-tab-btn {
+  background: transparent;
+  border: none;
+  font-size: 11px;
+  font-weight: 500;
+  color: #475569;
+  padding: 6px 2px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.12s ease;
+}
+
+.period-tab-btn:hover {
+  color: #0F172A;
+}
+
+.period-tab-btn.is-active {
+  background: #FFFFFF;
+  color: #0969DA;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.period-tab-btn:focus-visible {
+  outline: 2px solid #0969DA;
+}
+
+/* Custom Range */
+.custom-range-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  background: #F8FAFC;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
+}
+
+.custom-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.custom-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #64748B;
+}
+
+.custom-date-input {
+  width: 100%;
+  padding: 4px 6px;
+  font-size: 11px;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  background: #FFFFFF;
+  font-family: inherit;
+}
+
+.custom-date-input:focus {
+  outline: none;
+  border-color: #0969DA;
+}
+
+.btn-apply-custom {
+  padding: 5px 10px;
+  background: #0969DA;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-apply-custom:hover {
+  background: #0858BA;
+}
+
+.custom-error-text {
+  font-size: 11px;
+  color: #DC2626;
+  margin: 0;
+}
+
+.popover-loading {
+  font-size: 12px;
+  color: #64748B;
+  text-align: center;
+  padding: 16px 0;
+}
+
+/* Capped Summary */
+.capped-usage-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.capped-metric-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.capped-metric-main {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.big-remaining-num {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0F172A;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.metric-limit-caption {
+  font-size: 13px;
+  color: #475569;
+  font-variant-numeric: tabular-nums;
+}
+
+.reset-countdown {
+  font-size: 11px;
+  color: #475569;
+  font-weight: 500;
+  background: #F1F5F9;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Progress bar inside popover */
+.popover-progress-track {
+  width: 100%;
+  height: 8px;
+  background: #F1F5F9;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.popover-progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+.popover-progress-track.state-ok .popover-progress-fill {
+  background-color: #0969DA;
+}
+
+.popover-progress-track.state-low .popover-progress-fill {
+  background-color: #D97706;
+}
+
+.popover-progress-track.state-limit .popover-progress-fill {
+  background-color: #DC2626;
+}
+
+/* Multiday Summary */
+.multiday-usage-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.multiday-metric-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.multiday-num {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0F172A;
+  font-variant-numeric: tabular-nums;
+}
+
+.multiday-sub-num {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  font-variant-numeric: tabular-nums;
+}
+
+.multiday-label {
+  font-size: 10px;
+  color: #64748B;
+}
+
+/* Stage Breakdown */
+.stage-breakdown-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.stage-breakdown-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.stage-stacked-bar {
+  display: flex;
+  height: 8px;
+  width: 100%;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: #F1F5F9;
+}
+
+.stacked-seg {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.seg-investigate {
+  background-color: #3B82F6;
+}
+
+.seg-patch {
+  background-color: #0969DA;
+}
+
+.seg-verify {
+  background-color: #10B981;
+}
+
+.stage-legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #475569;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.legend-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.dot-investigate {
+  background-color: #3B82F6;
+}
+
+.dot-patch {
+  background-color: #0969DA;
+}
+
+.dot-verify {
+  background-color: #10B981;
+}
+
+/* Footer */
+.popover-footer {
+  border-top: 1px solid #F1F5F9;
+  padding-top: 12px;
+  text-align: right;
+}
+
+.popover-view-all-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0969DA;
+  text-decoration: none;
+}
+
+.popover-view-all-link:hover {
+  text-decoration: underline;
+}
+
+.popover-view-all-link:focus-visible {
+  outline: 2px solid #0969DA;
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .token-popover-panel {
+    width: calc(100vw - 32px);
+    right: -60px;
+  }
+}

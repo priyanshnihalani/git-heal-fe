@@ -1,0 +1,122 @@
+/* StatusPill.css - Consistent Sans-Serif Sentence-Case Status Badges */
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: inherit; /* sans-serif */
+  font-weight: 500;
+  border-radius: 9999px;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.status-pill.size-sm {
+  font-size: 11px;
+  padding: 3px 8px;
+}
+
+.status-pill.size-md {
+  font-size: 12px;
+  padding: 4px 10px;
+}
+
+.status-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* In-progress animated pulse */
+.status-pill.is-animated .status-pill-dot {
+  animation: statusPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-pill.is-animated .status-pill-dot {
+    animation: none !important;
+  }
+}
+
+/* States per Stage B design specification */
+
+/* Detected = gray */
+.status-detected {
+  color: #475569;
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+}
+.status-detected .status-pill-dot {
+  background: #64748B;
+}
+
+/* Investigating, Patching, Verifying = blue with animated dot */
+.status-investigating,
+.status-patching,
+.status-verifying {
+  color: #1D4ED8;
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+}
+.status-investigating .status-pill-dot,
+.status-patching .status-pill-dot,
+.status-verifying .status-pill-dot {
+  background: #2563EB;
+}
+
+/* PR opened = green */
+.status-pr-opened {
+  color: #047857;
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+}
+.status-pr-opened .status-pill-dot {
+  background: #059669;
+}
+
+/* Merged = GitHub Merged style */
+.status-merged {
+  color: #8250DF;
+  background: #F6F8FA;
+  border: 1px solid #D0D7DE;
+}
+.status-merged .status-pill-dot {
+  background: #8250DF;
+}
+
+/* Failed to fix = red */
+.status-failed {
+  color: #B91C1C;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+}
+.status-failed .status-pill-dot {
+  background: #DC2626;
+}
+
+/* Queued (token limit) = amber */
+.status-queued {
+  color: #B45309;
+  background: #FFFBEB;
+  border: 1px solid #FDE68A;
+}
+.status-queued .status-pill-dot {
+  background: #D97706;
+}
+
+.status-default {
+  color: #475569;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+}
+.status-default .status-pill-dot {
+  background: #94A3B8;
+}
